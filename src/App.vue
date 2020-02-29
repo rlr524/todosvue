@@ -8,7 +8,7 @@
 import Todos from "./components/Todos";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Todos
   },
@@ -20,20 +20,20 @@ export default {
           title: "See Rila",
           completed: false
         },
-                {
+        {
           id: 2,
           title: "Say hello to Rila",
           completed: false
         },
-                {
-          id: 1,
+        {
+          id: 3,
           title: "Eat with Rila",
           completed: false
         }
       ]
-    }
+    };
   }
-}
+};
 </script>
 
 <style>
