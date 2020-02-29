@@ -1,48 +1,16 @@
 <template>
   <div class="container" id="app">
     <Header />
-    <AddTodo />
-    <Todos v-bind:todos="todos" v-on:del-todo="deleteTodo" />
+    <router-view />
   </div>
 </template>
 
 <script>
 import Header from "./components/layout/Header";
-import Todos from "./components/Todos";
-import AddTodo from "./components/AddTodo";
-
 export default {
   name: "App",
   components: {
-    Header,
-    Todos,
-    AddTodo
-  },
-  data() {
-    return {
-      todos: [
-        {
-          id: 1,
-          title: "Eat some cake",
-          completed: false
-        },
-        {
-          id: 2,
-          title: "Drink some of Mugi's tea",
-          completed: false
-        },
-        {
-          id: 3,
-          title: "Play Giita",
-          completed: false
-        }
-      ]
-    };
-  },
-  methods: {
-    deleteTodo(id) {
-      this.todos = this.todos.filter(todo => todo.id !== id);
-    }
+    Header
   }
 };
 </script>
@@ -54,13 +22,17 @@ export default {
   padding: 0;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
   line-height: 1.4;
 }
 
 .container {
-  width: 75%;
+  width: 60%;
   margin: 2% auto;
 }
 
