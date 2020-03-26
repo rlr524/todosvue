@@ -28,7 +28,8 @@ export default {
       const newTodo = {
         // id: uuidv4(),
         title: this.title,
-        completed: false
+        completed: false,
+        deleted: false
       };
       // send up to parent
       this.$emit("add-todo", newTodo);

@@ -22,18 +22,19 @@ export default {
     };
   },
   methods: {
-    deleteTodo(id) {
+    deleteTodo(_id) {
       axios
-        .delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-        .then((this.todos = this.todos.filter(todo => todo.id !== id)))
+        .delete(`https://guarded-ravine-39563.herokuapp.com/todoitems/${_id}`)
+        .then((this.todos = this.todos.filter(todo => todo.id !== _id)))
         .catch(err => console.log(err));
     },
     addTodo(newTodo) {
-      const { title, completed } = newTodo;
+      const { title, completed, deleted } = newTodo;
       axios
-        .post("https://jsonplaceholder.typicode.com/todos", {
+        .post("https://guarded-ravine-39563.herokuapp.com/todoitems", {
           title,
-          completed
+          completed,
+          deleted
         })
         .then(res => (this.todos = [...this.todos, res.data]))
         .catch(err => console.log(err));
@@ -41,7 +42,7 @@ export default {
   },
   created() {
     axios
-      .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
+      .get("https://guarded-ravine-39563.herokuapp.com/todoitems")
       .then(res => (this.todos = res.data))
       .catch(err => console.log(err));
   }
